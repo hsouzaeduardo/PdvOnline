@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dominio
+namespace Dominio.Entity
 {
     public class Nota : BaseClass
     {
-        public Nota()
-        {
-            base.Id = Guid.NewGuid();
-        }
-
         public decimal Valor { get; set; }
 
         public Int64 Cpf { get; set; }

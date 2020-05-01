@@ -1,14 +1,9 @@
 ﻿using System;
 
-namespace Dominio
+namespace Dominio.Entity
 {
     public class ItemComanda : BaseClass
     {
-        public ItemComanda()
-        {
-            base.Id = Guid.NewGuid();
-        }
-
         public  Guid ComandaId { get; set; }
 
         public Comanda Comanda { get; set; }

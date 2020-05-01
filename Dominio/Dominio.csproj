@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Handle\" />
+    <Folder Include="Command\" />
+    <Folder Include="Query\" />
+  </ItemGroup>
+
 </Project>

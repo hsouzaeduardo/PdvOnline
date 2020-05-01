@@ -1,4 +1,5 @@
 using Dominio;
+using Dominio.Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 

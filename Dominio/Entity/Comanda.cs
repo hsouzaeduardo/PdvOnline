@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Dominio.Entity;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dominio
+namespace Dominio.Entity
 {
     public enum StatusComanda
     {
@@ -16,7 +17,7 @@ namespace Dominio
     {
         public Comanda()
         {
-            base.Id = Guid.NewGuid();
+         
             Itens = new List<ItemComanda>();
         }
 

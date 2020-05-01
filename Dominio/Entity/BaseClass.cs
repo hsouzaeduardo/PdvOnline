@@ -1,9 +1,14 @@
 ﻿using System;
 
-namespace Dominio
+namespace Dominio.Entity
 {
     public abstract class BaseClass
     {
+        public BaseClass()
+        {
+            Id = Guid.NewGuid();
+        }
+
         public Guid Id { get; set; }
 
         public DateTime DtCriacao { get; set; } = DateTime.Now;

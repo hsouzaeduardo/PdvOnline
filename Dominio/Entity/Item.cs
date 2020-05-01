@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Dominio
+namespace Dominio.Entity
 {
     public class Item : BaseClass
     {
-        public Item()
-        {
-            base.Id = Guid.NewGuid();
-        }
-
         public string Descricao { get; set; }
 
         public string Foto { get; set; }
