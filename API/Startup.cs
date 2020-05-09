@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace API
 {
@@ -39,6 +40,17 @@ namespace API
             services.AddScoped<INota, NotaRepositorio>();
             services.AddScoped(typeof(IRepositorio<>), typeof(RepositorioSQL<>));
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info()
+                {
+                    Title ="Api Comandas do PDV Online",
+                    Version = "v1",
+                    Description = "Exemplo complementar 20486"
+                });
+
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +67,12 @@ namespace API
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api PDV Online");
+                c.RoutePrefix = "docs";
+            });
         }
     }
 }
