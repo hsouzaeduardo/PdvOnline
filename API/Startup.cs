@@ -57,6 +57,7 @@ namespace API
                     Title ="Api Comandas do PDV Online",
                     Version = "v1",
                     Description = "Exemplo complementar 20486"
+                    
                 });
 
             });
