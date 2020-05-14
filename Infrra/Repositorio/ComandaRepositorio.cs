@@ -44,14 +44,14 @@ namespace Infra.Repositorio
 
         public Comanda GetComandaNumero(string numeroComanda)
         {
-            var comanda = base._tabelas.Include("Itens").FirstOrDefault(x => x.Numero.Equals(numeroComanda));
+            var comanda = GetItensComandaAsync(numeroComanda).Result;
 
             return comanda;
         }
 
         public async Task<Comanda> GetItensComandaAsync(string numeroComanda)
         {
-            return await base._tabelas.Include("Itens").FirstOrDefaultAsync(x => x.Numero.Equals(numeroComanda));
+            return await base._tabelas.Include("Itens").FirstOrDefaultAsync(x => x.Numero.Equals(numeroComanda));//TODO --> CQRS
         }
 
         public void IncluirItem(Item item, string numeroComanda, int quantidade, string garcon)

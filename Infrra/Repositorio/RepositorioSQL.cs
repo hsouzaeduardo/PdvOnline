@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infra.Repositorio
 {
-    public class RepositorioSQL<T> : IRepositorio<T> where T : BaseClass
+    public class RepositorioSQL<T> : IRepositorio<T> where T : class
     {
         private readonly Contexto.ComandasContext _ctx;
         internal readonly DbSet<T> _tabelas;

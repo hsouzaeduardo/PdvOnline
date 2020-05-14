@@ -26,7 +26,7 @@ namespace Infra.Repositorio
 
         public IEnumerable<Nota> GetByCpf(long cpf)
         {
-            return _tabelas.Where(x => x.Cpf == cpf);
+            return _tabelas.Where(x => x.Cpf == cpf);//TODO --> Implementar Query CQRS
         }
     }
 }

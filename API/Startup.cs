@@ -7,6 +7,7 @@ using Infra.Contexto;
 using Infra.InitializeDB;
 using Infra.Repositorio;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -36,9 +37,18 @@ namespace API
             services.AddDbContext<ComandasContext>(op =>
             op.UseSqlServer(Configuration.GetConnectionString("ComandaDB")));
 
+            
             services.AddScoped<IComanda, ComandaRepositorio>();
             services.AddScoped<INota, NotaRepositorio>();
             services.AddScoped(typeof(IRepositorio<>), typeof(RepositorioSQL<>));
+
+            services.AddCors(cors =>
+            {
+                cors.AddPolicy("cors", politicas =>
+                {
+                    politicas.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -64,7 +74,7 @@ namespace API
             {
                 app.UseHsts();
             }
-
+            app.UseCors();
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();

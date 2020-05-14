@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Contratos
 {
-    public interface IRepositorio<T> where T: BaseClass
+    public interface IRepositorio<T> where T: class
     {
         void Add(T entity);
 
